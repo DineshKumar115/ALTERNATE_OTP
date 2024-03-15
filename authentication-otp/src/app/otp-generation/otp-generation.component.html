@@ -1,0 +1,81 @@
+
+<section class="main">
+    
+    <div class="container">
+
+
+        <div class="row row-items">
+            <div class="col-md-6">
+                <div class="card" >
+                    <form id="registration-form" [formGroup]="emailSend" *ngIf="formShow==1" style="padding:21px;margin-bottom: 50px;" class="mb-4o7">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group custom-form-group">
+
+
+                                    <input formControlName="c_Email" name="c_Email" type="text" class="form-control"
+                                        placeholder="Enter your registred email">
+
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <button class="btn btn-primary" (click)="submitForm(1)">
+                                    Submit
+                                </button>
+                            </div>
+                        </div>
+
+
+                    </form>
+                    <form id="registration-form" [formGroup]="otpVerified" *ngIf="formShow==2" style="padding:21px;" class="mb-4">
+                        <div class="row">
+                            <div class="col-lg-6 ">
+                                <div class="form-group custom-form-group">
+
+
+                                    <input formControlName="otp" name="otp" type="text" class="form-control"
+                                        placeholder="Enter your otp">
+
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <button class="btn btn-primary" (click)="submitForm(2)">
+                                    Verify
+                                </button>
+                            </div>
+                            <div class="col-md-12" style="padding-top: 10px;" *ngIf="showbtn==true"><button (click)="resendOtp()" class="btn btn-primary">Re-Send Otp</button>or<button (click)="authKey()" class="btn btn-primary">try With Auth Key</button></div>
+                           
+                        </div>
+
+
+                    </form>
+                    <form id="registration-form" [formGroup]="AuthVerify" *ngIf="formShow==3" style="padding:21px">
+                        <div class="row">
+                            <div class="col-lg-6 ">
+                                <div class="form-group custom-form-group">
+
+                                    <input formControlName="c_Authkey" name="c_Authkey" type="text" class="form-control"
+                                        placeholder="Enter Your Personal Auth Key">
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <button class="btn btn-primary" (click)="submitForm(3)">
+                                    Submit
+                                </button>
+                            </div>
+                            <div class="col-md-6" style="padding-top: 10px;"> <button class="btn btn-primary" (click)="tryWithOtp()">Try With Otp</button> </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-6">
+              
+                <div class="successMessage" *ngIf="showmwssage==1">{{successMessage}}</div>
+                <div class="errorMessage" *ngIf="showmwssage==2">{{errorMessage}}</div>
+            </div>
+        </div>
+    </div>
+</section>
